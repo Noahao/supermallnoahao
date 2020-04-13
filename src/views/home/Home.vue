@@ -21,6 +21,7 @@
                    ref="tabControl2"/>
       <good-list :goods="showGoods"/>
     </scroll>
+    <back-top @click.native="backClick" v-show="isShowBackTop"/>
   </div>
 </template>
 
@@ -33,6 +34,7 @@
   import TabControl from 'components/content/tabControl/TabControl'
   import GoodList from 'components/content/goods/GoodsList'
   import Scroll from 'components/common/scroll/Scroll'
+  import BackTop from 'components/content/backTop/BackTop'
 
   import { getHomeMultidata, getHomeGoods, getHomeGoods2 } from "network/home"
   import { debounce } from 'common/utils'
@@ -47,7 +49,8 @@
       NavBar,
       TabControl,
       GoodList,
-      Scroll
+      Scroll,
+      BackTop
     },
     mixins: [itemListenerMixin],
     data() {
@@ -149,10 +152,10 @@
           // 完成下拉加载更多
           this.$refs.scroll.finishPullUp()
         })
-        /*getHomeGoods(type, page).then(res => {
-          console.log(res);
-          console.log(type,page);
-        })*/
+        // getHomeGoods(type, page).then(res => {
+        //   console.log(res);
+        //   console.log(type,page);
+        // })
       }
     }
   }
