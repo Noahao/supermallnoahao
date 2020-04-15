@@ -7,6 +7,11 @@
             ref="scroll"
             @scroll="contentScroll"
             :probe-type="3">
+      <ul>
+        <li v-for="item in $store.state.cartList">
+          {{item}}
+        </li>
+      </ul>
       <detail-swiper :top-img="topImg"/>
       <detail-base-info :goods="goods"/>
       <detail-shop-info :shop="shop"/>
@@ -178,7 +183,12 @@
         product.price = this.goods.realPrice
         product.iid = this.iid
 
-        //
+        console.log(product);
+
+        // 将商品添加到购物车里
+        // this.$store.cartList.push(product)
+        // this.$store.commit("addCart", product)
+        this.$store.dispatch("addCart", product)
       }
     }
   }
@@ -200,5 +210,6 @@
 
   .content {
     height: calc(100% - 93px);
+    overflow: hidden;
   }
 </style>
