@@ -7,11 +7,6 @@
             ref="scroll"
             @scroll="contentScroll"
             :probe-type="3">
-      <ul>
-        <li v-for="item in $store.state.cartList">
-          {{item}}
-        </li>
-      </ul>
       <detail-swiper :top-img="topImg"/>
       <detail-base-info :goods="goods"/>
       <detail-shop-info :shop="shop"/>
@@ -86,7 +81,7 @@
         // 1.获取顶部的轮播图片
         this.topImg = res.result.itemInfo.topImages
         const data = res.result
-        // console.log(data)
+        // console.log(data.rate.list)
 
         // 2.获取商品信息
         this.goods = new Goods(data.itemInfo, data.columns, data.shopInfo.services)
@@ -101,7 +96,7 @@
         this.paramInfo = new GoodsParam(data.itemParams.info, data.itemParams.rule)
 
         // 6.取出评论信息
-        if(data.rate.list != 0) {
+        if(data.rate.list !== undefined) {
           this.commentInfo = data.rate.list[0]
         }
 

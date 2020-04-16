@@ -32,6 +32,9 @@
       ...mapGetters([
         'cartLength'
       ])
+    },
+    activated() {
+      this.$refs.scroll.refresh()
     }
   }
 </script>
