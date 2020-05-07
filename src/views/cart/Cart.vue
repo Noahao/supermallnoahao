@@ -8,6 +8,8 @@
             ref="scroll">
       <cart-list/>
     </scroll>
+
+    <cart-bottom-bar/>
   </div>
 </template>
 
@@ -15,6 +17,7 @@
   import Scroll from 'components/common/scroll/Scroll'
   import NavBar from 'components/common/navbar/NavBar'
   import CartList from './childComps/CartList'
+  import CartBottomBar from './childComps/CartBottomBar'
 
   import { mapGetters } from 'vuex'
 
@@ -23,6 +26,7 @@
     components: {
       NavBar,
       CartList,
+      CartBottomBar,
       Scroll
     },
     computed: {
@@ -46,7 +50,7 @@
   }
 
   .content {
-    height: calc(100vh - 93px);
+    height: calc(100vh - 93px - 40px);
     overflow: hidden;
   }
 </style>

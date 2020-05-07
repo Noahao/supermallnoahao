@@ -1,7 +1,7 @@
 <template>
   <div id="shop-item">
     <div class="item-selector">
-      <check-button :value="product.checked"/>
+      <check-button :is-checked="product.checked" @click.native="checkButtonClick"/>
     </div>
     <div class="item-img">
       <img :src="product.image" alt="商品图片">
@@ -31,6 +31,12 @@
         default() {
           return {}
         }
+      }
+    },
+    methods: {
+      checkButtonClick() {
+        this.product.checked = !this.product.checked
+        // console.log(this.$store.state.cartList);
       }
     }
   }
