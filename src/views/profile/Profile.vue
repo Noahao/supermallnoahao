@@ -104,6 +104,8 @@
         <li>个人信息100</li>
       </ul>
     </scroll>
+    <div>{{ a.b.c.d.e.f.g }}</div>
+    <div @click="changeA">按钮</div>
   </div>
 </template>
 
@@ -114,6 +116,28 @@
     name: "Profile",
     components: {
       Scroll
+    },
+    data() {
+      return {
+        a: {
+          b: {
+            c : {
+              d : {
+                e : {
+                  f : {
+                    g: 1
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    methods: {
+      changeA() {
+        this.a.b.c.d.e.f.g = 5
+      }
     }
   }
 </script>
